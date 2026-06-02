@@ -304,6 +304,11 @@ h3.item-title {
   animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.4s forwards, card-float-sway-left 4.5s ease-in-out infinite 4.0s;
 }
 
+.project-card-wrapper:nth-child(4) {
+  --card-rotation: 0deg;
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.55s forwards, card-float-sway-right 5.6s ease-in-out infinite 5.5s;
+}
+
 .project-card {
   background-color: var(--card-bg);
   border: none;
