@@ -178,7 +178,7 @@ h2.section-title {
   font-size: 2.2rem;
   color: var(--teal-primary);
   text-align: center;
-  margin: 3rem 0 1.5rem 0;
+  margin: 0.5rem 0 1.5rem 0;
   font-weight: 700;
 }
 
@@ -189,6 +189,91 @@ h3.item-title {
   margin: 2rem 0 1rem 0;
   text-align: center;
   font-weight: 600;
+}
+/* Resume Section Styles */
+.resume-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.resume-section {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  border: 2px solid var(--pink-primary);
+
+}
+
+.resume-section-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.8rem;
+  color: var(--teal-primary);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  
+}
+
+.resume-item {
+  margin-bottom: 1.8rem;
+  
+}
+
+.resume-item:last-child {
+  margin-bottom: 0;
+}
+
+.resume-item-header {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.resume-item-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.3rem;
+  color: var(--teal-dark);
+  font-weight: 600;
+  margin: 0;
+}
+
+
+.resume-date {
+  font-size: 1rem;
+  color: var(--pink-accent);
+  font-weight: 600;
+  font-style: italic;
+  flex-shrink: 0;
+  
+}
+
+.resume-item-description {
+  font-size: 1.1rem;
+  color: var(--teal-dark);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.skill-tag {
+  background: linear-gradient(135deg, var(--pink-primary) 0%, var(--pink-accent) 100%);
+  color: #FFFFFF;
+  padding: 0.8rem 1.2rem;
+  border-radius: 50px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: var(--shadow-sm);
 }
 
 /* Gallery Grid (Home Page) */
@@ -415,11 +500,17 @@ h3.item-title {
   margin-bottom: 2.5rem;
 }
 
+.skills-title {
+  margin-top: 10em;
+}
+
 .contact-list {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .contact-item {
@@ -453,88 +544,6 @@ h3.item-title {
 .contact-item:hover .contact-icon {
   fill: var(--pink-accent);
   transform: scale(1.1);
-}
-
-/* Resume Section Styles */
-.resume-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-}
-
-.resume-section {
-  background-color: var(--card-bg);
-  border-radius: var(--border-radius);
-  padding: 2rem;
-  box-shadow: var(--shadow-sm);
-  border: 2px solid var(--pink-primary);
-}
-
-.resume-section-title {
-  font-family: 'Fredoka', sans-serif;
-  font-size: 1.8rem;
-  color: var(--teal-primary);
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-}
-
-.resume-item {
-  margin-bottom: 1.8rem;
-}
-
-.resume-item:last-child {
-  margin-bottom: 0;
-}
-
-.resume-item-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
-  margin-bottom: 0.8rem;
-  flex-wrap: wrap;
-}
-
-.resume-item-title {
-  font-family: 'Fredoka', sans-serif;
-  font-size: 1.3rem;
-  color: var(--teal-dark);
-  font-weight: 600;
-  margin: 0;
-}
-
-.resume-date {
-  font-size: 1rem;
-  color: var(--pink-accent);
-  font-weight: 600;
-  font-style: italic;
-  flex-shrink: 0;
-}
-
-.resume-item-description {
-  font-size: 1.1rem;
-  color: var(--teal-dark);
-  line-height: 1.6;
-  margin: 0;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1rem;
-}
-
-.skill-tag {
-  background: linear-gradient(135deg, var(--pink-primary) 0%, var(--pink-accent) 100%);
-  color: #FFFFFF;
-  padding: 0.8rem 1.2rem;
-  border-radius: 50px;
-  text-align: center;
-  font-weight: 600;
-  font-size: 1rem;
-  box-shadow: var(--shadow-sm);
 }
 
 /* Lightbox Modal */
@@ -813,8 +822,10 @@ footer {
     margin-bottom: 2.5rem;
   }
 
+
   h2.section-title {
     font-size: 1.8rem;
+
   }
 
   .about-container {
@@ -855,7 +866,6 @@ footer {
 
   .resume-item-header {
     flex-direction: column;
-    align-items: flex-start;
   }
 
   .resume-date {
@@ -863,8 +873,11 @@ footer {
   }
 
   .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 0.8rem;
+   display: flex;
+  flex-wrap: wrap;
+   align-items: center;
+  justify-content: center;
+   
   }
 
   .skill-tag {
