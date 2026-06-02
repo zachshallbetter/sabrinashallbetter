@@ -455,6 +455,88 @@ h3.item-title {
   transform: scale(1.1);
 }
 
+/* Resume Section Styles */
+.resume-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.resume-section {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  border: 2px solid var(--pink-primary);
+}
+
+.resume-section-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.8rem;
+  color: var(--teal-primary);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.resume-item {
+  margin-bottom: 1.8rem;
+}
+
+.resume-item:last-child {
+  margin-bottom: 0;
+}
+
+.resume-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.resume-item-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.3rem;
+  color: var(--teal-dark);
+  font-weight: 600;
+  margin: 0;
+}
+
+.resume-date {
+  font-size: 1rem;
+  color: var(--pink-accent);
+  font-weight: 600;
+  font-style: italic;
+  flex-shrink: 0;
+}
+
+.resume-item-description {
+  font-size: 1.1rem;
+  color: var(--teal-dark);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.skill-tag {
+  background: linear-gradient(135deg, var(--pink-primary) 0%, var(--pink-accent) 100%);
+  color: #FFFFFF;
+  padding: 0.8rem 1.2rem;
+  border-radius: 50px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
 /* Lightbox Modal */
 .lightbox {
   position: fixed;
@@ -752,6 +834,42 @@ footer {
 
   .contact-list {
     align-items: center;
+  }
+
+  .resume-container {
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .resume-section {
+    padding: 1.5rem;
+  }
+
+  .resume-section-title {
+    font-size: 1.5rem;
+  }
+
+  .resume-item-title {
+    font-size: 1.15rem;
+  }
+
+  .resume-item-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .resume-date {
+    font-size: 0.95rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.8rem;
+  }
+
+  .skill-tag {
+    padding: 0.7rem 1rem;
+    font-size: 0.95rem;
   }
 
   .hero-image-wrapper {
