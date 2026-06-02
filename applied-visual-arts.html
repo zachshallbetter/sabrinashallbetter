@@ -46,17 +46,51 @@
       <h1 class="page-title" id="project-title">Applied Visual Arts</h1>
       
       <div class="hero-image-wrapper" id="visual-arts-hero-wrapper">
-        <img src="Photos/Group 5.png" alt="Applied Visual Arts colorful flower petal logo design" class="hero-img" id="visual-arts-hero-img" title="Click to zoom">
+        <img src="Photos/Final_AVA_Design_SS.jpg" alt="Applied Visual Arts colorful flower petal logo design" class="hero-img" id="visual-arts-hero-img" title="Click to zoom">
       </div>
 
       <section aria-labelledby="concept-overview-heading" class="concept-overview-content">
         <h2 class="section-title" id="concept-overview-heading">Concept Overview</h2>
         <p>
-          Applied Visual Arts is a branding and logo design project for the graphic design and fine arts department at Spokane Falls Community College. The goal was to craft a lively and energetic visual emblem that encapsulates the diversity, passion, and creative drive of student designers.
+          Applied Visual Arts is booklet that promotes all the different art and design programs offered at Spokane Falls Community College. For this project, I created a logo and emblem design for the booklet cover that would represent the diversity of creative disciplines within the Applied Visual Arts department. The design needed to be bold, colorful, and visually engaging to capture the attention of prospective students and convey the dynamic nature of the programs offered.
         </p>
-        <p>
-          The design features a vibrant, multi-layered color flower-petal motif overlayed with a bold, hand-drawn typography style that spells out "Applied Visual Arts". Beneath the emblem is a clean, modern subtext "Spokane Falls Community College" using a custom handwritten font.
-        </p>
+       
+      </section>
+            <section aria-labelledby="process-heading">
+        <h2 class="section-title" id="process-heading">Full Booklet</h2>
+        <div class="booklet-carousel" aria-roledescription="carousel" aria-label="Applied Visual Arts booklet pages">
+          <div class="carousel-track-container">
+            <ul class="carousel-track">
+              <li class="carousel-slide current-slide">
+                <img src="Photos/Final_AVA_Design_SS.jpg" alt="Booklet page 1" class="carousel-image">
+              </li>
+              <li class="carousel-slide">
+                <img src="Photos/Final_AVA_Design_SS2.jpg" alt="Booklet page 2" class="carousel-image">
+              </li>
+              <li class="carousel-slide">
+                <img src="Photos/Final_AVA_Design_SS3.jpg" alt="Booklet page 3" class="carousel-image">
+              </li>
+              <li class="carousel-slide">
+                <img src="Photos/Final_AVA_Design_SS4.jpg" alt="Booklet page 4" class="carousel-image">
+              </li>
+              <li class="carousel-slide">
+                <img src="Photos/Final_AVA_Design_SS5.jpg" alt="Booklet page 5" class="carousel-image">
+              </li>
+              <li class="carousel-slide">
+                <img src="Photos/Final_AVA_Design_SS6.jpg" alt="Booklet page 6" class="carousel-image">
+              </li>
+              <li class="carousel-slide">
+                <img src="Photos/Final_AVA_Design_SS7.jpg" alt="Booklet page 7" class="carousel-image">
+              </li>
+              <li class="carousel-slide">
+                <img src="Photos/Final_AVA_Design_SS8.jpg" alt="Booklet page 8" class="carousel-image">
+              </li>
+            </ul>
+          </div>
+          <button class="carousel-button prev-button" aria-label="Previous booklet page">‹</button>
+          <button class="carousel-button next-button" aria-label="Next booklet page">›</button>
+          <div class="carousel-indicators" aria-label="Booklet page navigation"></div>
+        </div>
       </section>
 
     </article>
@@ -70,6 +104,46 @@
   </footer>
 
   <script src="lightbox.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const track = document.querySelector('.booklet-carousel .carousel-track');
+      const slides = Array.from(track.children);
+      const prevButton = document.querySelector('.booklet-carousel .prev-button');
+      const nextButton = document.querySelector('.booklet-carousel .next-button');
+      const indicators = document.querySelector('.carousel-indicators');
+      let currentIndex = 0;
+
+      const setSlide = (index) => {
+        if (index < 0) index = slides.length - 1;
+        if (index >= slides.length) index = 0;
+        currentIndex = index;
+
+        slides.forEach((slide, idx) => {
+          slide.classList.toggle('current-slide', idx === currentIndex);
+        });
+
+        Array.from(indicators.children).forEach((indicator, idx) => {
+          indicator.classList.toggle('current-slide', idx === currentIndex);
+        });
+      };
+
+      const createIndicator = (index) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = index === 0 ? 'carousel-indicator current-slide' : 'carousel-indicator';
+        button.setAttribute('aria-label', `Show page ${index + 1}`);
+        button.addEventListener('click', () => setSlide(index));
+        indicators.appendChild(button);
+      };
+
+      slides.forEach((slide, index) => {
+        createIndicator(index);
+      });
+
+      prevButton.addEventListener('click', () => setSlide(currentIndex - 1));
+      nextButton.addEventListener('click', () => setSlide(currentIndex + 1));
+    });
+  </script>
 
 </body>
 </html>

@@ -46,17 +46,59 @@
       <h1 class="page-title" id="project-title">Puff Palace</h1>
       
       <div class="hero-image-wrapper" id="puff-palace-hero-wrapper">
-        <img src="Photos/Group 4.png" alt="Puff Palace custom pink castle box packaging mockup" class="hero-img" id="puff-palace-hero-img" title="Click to zoom">
+        <img src="Photos/Puff5Rev2.png" alt="Puff Palace custom pink castle box packaging mockup" class="hero-img" id="puff-palace-hero-img" title="Click to zoom">
       </div>
 
       <section aria-labelledby="concept-overview-heading" class="concept-overview-content">
         <h2 class="section-title" id="concept-overview-heading">Concept Overview</h2>
         <p>
-          Puff Palace is a cream puff boutique where tasty pastry specialties reign supreme. For this branding and packaging design project, the task was to design a beautiful, elegant, and playful box packaging system that would hold three delicious cream puff treats.
+          Puff Palace is a cream puff boutique where every pastry feels like a tiny royal treasure. We specialize in light, cloud-soft cream puffs made with high-quality ingredients inspired by fairytales, elegance, and cozy indulgence.
         </p>
         <p>
-          The design features a custom pink, castle-inspired outer carton adorned with delicate lace patterns and a custom logo typeface. Inside, individual cream puffs are housed in beautifully illustrated sliding drawers colored in warm peach and royal lavender, each decorated with matching character graphics.
+          The design features a custom pink outer carton adorned with delicate lace patterns and a custom logo typeface. Inside, individual cream puffs are housed in beautifully illustrated boxes colored in pink, chocolate, lavendar, and green tea, each decorated with matching character graphics.
         </p>
+      </section>
+      <section aria-labelledby="process-heading">
+        <h2 class="section-title" id="process-heading">Collateral</h2>
+        <div class="booklet-carousel" aria-roledescription="carousel" aria-label="Puff Palace photos">
+          <div class="carousel-track-container">
+            <ul class="carousel-track">
+              <li class="carousel-slide current-slide">
+                
+                <img src="Photos/Puff1.png" alt="Puff Palace packaging photo 1" class="carousel-image">
+              </li>
+              <li class="carousel-slide">
+                <img src="Photos/Puff3Rev.png" alt="Puff Palace packaging photo 2" class="carousel-image">
+              </li>
+               <li class="carousel-slide">
+                <img src="Photos/Puff6Rev.png" alt="Puff Palace packaging photo 2" class="carousel-image">
+              </li>
+            </ul>
+          </div>
+          <button class="carousel-button prev-button" aria-label="Previous Puff Palace photo">‹</button>
+          <button class="carousel-button next-button" aria-label="Next Puff Palace photo">›</button>
+          <div class="carousel-indicators" aria-label="Puff Palace photo navigation"></div>
+        </div>
+      </section>
+
+       <section aria-labelledby="brand-guide-heading">
+        <h2 class="section-title" id="brand-guide-heading">Brand Guide</h2>
+        <div class="booklet-carousel" aria-roledescription="carousel" aria-label="Puff Palace brand guide photos">
+          <div class="carousel-track-container">
+            <ul class="carousel-track">
+              <li class="carousel-slide current-slide">
+      
+                <img src="Photos/BrandGuide1.jpg" alt="Puff Palace brand guide photo 1" class="carousel-image">
+              </li>
+              <li class="carousel-slide">
+                <img src="Photos/BrandGuide2.jpg" alt="Puff Palace brand guide photo 2" class="carousel-image">
+              </li>
+            </ul>
+          </div>
+          <button class="carousel-button prev-button" aria-label="Previous Puff Palace photo">‹</button>
+          <button class="carousel-button next-button" aria-label="Next Puff Palace photo">›</button>
+          <div class="carousel-indicators" aria-label="Puff Palace photo navigation"></div>
+        </div>
       </section>
 
     </article>
@@ -70,6 +112,48 @@
   </footer>
 
   <script src="lightbox.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.booklet-carousel').forEach((carousel) => {
+        const track = carousel.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const prevButton = carousel.querySelector('.prev-button');
+        const nextButton = carousel.querySelector('.next-button');
+        const indicators = carousel.querySelector('.carousel-indicators');
+        let currentIndex = 0;
+
+        const setSlide = (index) => {
+          if (index < 0) index = slides.length - 1;
+          if (index >= slides.length) index = 0;
+          currentIndex = index;
+
+          slides.forEach((slide, idx) => {
+            slide.classList.toggle('current-slide', idx === currentIndex);
+          });
+
+          Array.from(indicators.children).forEach((indicator, idx) => {
+            indicator.classList.toggle('current-slide', idx === currentIndex);
+          });
+        };
+
+        const createIndicator = (index) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = index === 0 ? 'carousel-indicator current-slide' : 'carousel-indicator';
+          button.setAttribute('aria-label', `Show photo ${index + 1}`);
+          button.addEventListener('click', () => setSlide(index));
+          indicators.appendChild(button);
+        };
+
+        slides.forEach((slide, index) => {
+          createIndicator(index);
+        });
+
+        prevButton.addEventListener('click', () => setSlide(currentIndex - 1));
+        nextButton.addEventListener('click', () => setSlide(currentIndex + 1));
+      });
+    });
+  </script>
 
 </body>
 </html>
